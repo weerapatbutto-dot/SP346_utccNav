@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/titleIndicator"
+        android:layout_width="4dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="12dp"
+        android:background="#00008B"
+        app:layout_constraintBottom_toBottomOf="@+id/titleText"
+        app:layout_constraintEnd_toStartOf="@+id/titleText"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleText" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="UTCC NAVIGATION"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/titleIndicator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currentLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="ตำแหน่งปัจจุบัน"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+    <TextView
+        android:id="@+id/currentLocationValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/history_card_background"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="10dp"
+        android:textColor="#00008B"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentLocationLabel" />
+
+    <ScrollView
+        android:id="@+id/photoScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentLocationValue">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingBottom="40dp">
+
+            <!-- Box 1 -->
+            <ImageView
+                android:id="@+id/box1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:src="@drawable/b24"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/box2"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Box 2 -->
+            <ImageView
+                android:id="@+id/box2"
+                android:src="@drawable/b07"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/box1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Box 3 -->
+            <ImageView
+                android:id="@+id/box3"
+                android:src="@drawable/b01"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/box4"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/box1" />
+
+            <!-- Box 4 -->
+            <ImageView
+                android:id="@+id/box4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/box3"
+                app:layout_constraintTop_toBottomOf="@+id/box2" />
+
+            <!-- Box 5 -->
+            <ImageView
+                android:id="@+id/box5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/box6"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/box3" />
+
+            <!-- Box 6 -->
+            <ImageView
+                android:id="@+id/box6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/box5"
+                app:layout_constraintTop_toBottomOf="@+id/box4" />
+
+            <!-- Box 7 -->
+            <ImageView
+                android:id="@+id/box7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/box8"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/box5" />
+
+            <!-- Box 8 -->
+            <ImageView
+                android:id="@+id/box8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/box7"
+                app:layout_constraintTop_toBottomOf="@+id/box6" />
+
+            <!-- Box 9 -->
+            <ImageView
+                android:id="@+id/box9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/box10"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/box7" />
+
+            <!-- Box 10 -->
+            <ImageView
+                android:id="@+id/box10"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/history_card_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/box9"
+                app:layout_constraintTop_toBottomOf="@+id/box8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/nav_bar_background"
+        android:layout_width="0dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_white_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/homeBtn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/home_button_background"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/home"
+        android:translationY="-36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:tint="@android:color/holo_blue_dark" />
+
+    <ImageButton
+        android:id="@+id/aboutBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/about"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintEnd_toStartOf="@+id/historyBtn"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/nav_bar_background"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background" />
+
+    <ImageButton
+        android:id="@+id/historyBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/history"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
+        app:layout_constraintEnd_toStartOf="@+id/homeBtn"
+        app:layout_constraintStart_toEndOf="@+id/aboutBtn"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <ImageButton
+        android:id="@+id/gmapBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/gmap"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@+id/homeBtn"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"/>
+
+    <ImageButton
+        android:id="@+id/settingBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/setting"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@+id/gmapBtn"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
+        app:layout_constraintEnd_toEndOf="@+id/nav_bar_background"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

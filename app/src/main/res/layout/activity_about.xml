@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".AboutActivity">
+
+    <View
+        android:id="@+id/titleIndicator"
+        android:layout_width="4dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="12dp"
+        android:background="#00008B"
+        app:layout_constraintBottom_toBottomOf="@+id/titleText"
+        app:layout_constraintEnd_toStartOf="@+id/titleText"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleText" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="UTCC NAVIGATION"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/titleIndicator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="32dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/history_card_background"
+                        android:padding="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@android:drawable/ic_menu_gallery"
+                        app:tint="#CCCCCC" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="สถานที่"
+                            android:textColor="#224488"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="-------"
+                            android:textColor="#224488"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/history_card_background"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:minHeight="200dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--------------------------"
+                        android:textColor="#333333"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="-------------------------------"
+                        android:textColor="#333333"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="----------------------------------------"
+                        android:textColor="#333333"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="32dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical"><ImageView android:layout_width="120dp" android:layout_height="120dp" android:background="@drawable/history_card_background" android:padding="8dp" android:scaleType="centerInside" android:src="@android:drawable/ic_menu_gallery" app:tint="#CCCCCC" /><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="สถานที่" android:textColor="#224488" android:textSize="28sp" android:textStyle="bold" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="-------" android:textColor="#224488" android:textSize="24sp" /></LinearLayout></LinearLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="@drawable/history_card_background" android:orientation="vertical" android:padding="24dp" android:minHeight="200dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--------------------------" android:textColor="#333333" android:textSize="16sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="-------------------------------" android:textColor="#333333" android:textSize="16sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="----------------------------------------" android:textColor="#333333" android:textSize="16sp" /></LinearLayout></LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="32dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical"><ImageView android:layout_width="120dp" android:layout_height="120dp" android:background="@drawable/history_card_background" android:padding="8dp" android:scaleType="centerInside" android:src="@android:drawable/ic_menu_gallery" app:tint="#CCCCCC" /><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="สถานที่" android:textColor="#224488" android:textSize="28sp" android:textStyle="bold" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="-------" android:textColor="#224488" android:textSize="24sp" /></LinearLayout></LinearLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="@drawable/history_card_background" android:orientation="vertical" android:padding="24dp" android:minHeight="200dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--------------------------" android:textColor="#333333" android:textSize="16sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="-------------------------------" android:textColor="#333333" android:textSize="16sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="----------------------------------------" android:textColor="#333333" android:textSize="16sp" /></LinearLayout></LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="32dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical"><ImageView android:layout_width="120dp" android:layout_height="120dp" android:background="@drawable/history_card_background" android:padding="8dp" android:scaleType="centerInside" android:src="@android:drawable/ic_menu_gallery" app:tint="#CCCCCC" /><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:orientation="vertical"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="สถานที่" android:textColor="#224488" android:textSize="28sp" android:textStyle="bold" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="-------" android:textColor="#224488" android:textSize="24sp" /></LinearLayout></LinearLayout><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="@drawable/history_card_background" android:orientation="vertical" android:padding="24dp" android:minHeight="200dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--------------------------" android:textColor="#333333" android:textSize="16sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="-------------------------------" android:textColor="#333333" android:textSize="16sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="----------------------------------------" android:textColor="#333333" android:textSize="16sp" /></LinearLayout></LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/nav_bar_background"
+        android:layout_width="0dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_white_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/homeBtn"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/home_button_background"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/home"
+        android:translationY="-36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:tint="@android:color/darker_gray" />
+
+    <ImageButton
+        android:id="@+id/aboutBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/about"
+        app:tint="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toStartOf="@+id/historyBtn"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/nav_bar_background"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background" />
+
+    <ImageButton
+        android:id="@+id/historyBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/history"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
+        app:layout_constraintEnd_toStartOf="@+id/homeBtn"
+        app:layout_constraintStart_toEndOf="@+id/aboutBtn"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <ImageButton
+        android:id="@+id/gmapBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/gmap"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@+id/homeBtn"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"/>
+
+    <ImageButton
+        android:id="@+id/settingBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/setting"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintStart_toEndOf="@+id/gmapBtn"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
+        app:layout_constraintEnd_toEndOf="@+id/nav_bar_background"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

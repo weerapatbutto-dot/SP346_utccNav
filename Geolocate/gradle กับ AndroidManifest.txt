@@ -1,0 +1,10 @@
+dependencies {
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+}
+
+
+(
+AndroidManifest
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+)
