@@ -13,35 +13,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+import java.util.List;
 
 public class ViewPageActivity extends AppCompatActivity {
+    
+    private int panoImg; 
+    private LinearLayout container;
+    private int currentIndex = 0; 
+    private List<Building> panoList; 
+    private HorizontalScrollView scroll;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_page);
         hideSystemUI();
 
-        HorizontalScrollView scroll = findViewById(R.id.panoramaScroll);
-        LinearLayout container = findViewById(R.id.panoramaContainer);
+        scroll = findViewById(R.id.panoramaScroll);
+        container = findViewById(R.id.panoramaContainer);
         TextView pixelIndicator = findViewById(R.id.pixelIndicator);
 
-        // Get image from Intent or default to pos4
-        int panoImg = R.drawable.pos1;
-        if (getIntent().hasExtra("image_resource")) {
-            panoImg = getIntent().getIntExtra("image_resource", R.drawable.pos1);
-        }
+        panoList = BuildingRepository.getPanolocate();
 
-        // Decode the image with sampling to prevent OutOfMemory crashes
-        // We target a width of about 1024px for good enough quality while saving RAM
-        Bitmap sampledBitmap = decodeSampledBitmapFromResource(panoImg, 200, 200);
+        panoImg = panoList.get(currentIndex).getImageResourceId();
+        reloadPanorama();
 
-        // Apply sampled bitmap to the three ImageViews
-        for (int i = 0; i < container.getChildCount(); i++) {
-            View child = container.getChildAt(i);
-            if (child instanceof ImageView) {
-                ((ImageView) child).setImageBitmap(sampledBitmap);
+        findViewById(R.id.prevBtn).setOnClickListener(v -> {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = panoList.size() - 1;
             }
-        }
+            panoImg = panoList.get(currentIndex).getImageResourceId();
+            reloadPanorama();
+        });
+
+        findViewById(R.id.nextBtn).setOnClickListener(v -> {
+            currentIndex++;
+            if (currentIndex >= panoList.size()) {
+                currentIndex = 0;
+            }
+            panoImg = panoList.get(currentIndex).getImageResourceId();
+            reloadPanorama();
+        });
 
         final ImageView referenceImage = (ImageView) container.getChildAt(1);
 
@@ -57,17 +70,9 @@ public class ViewPageActivity extends AppCompatActivity {
                     scroll.setScrollX(scrollX + imageWidth);
                 }
                 
-                // Calculate pixel position (mapping current center to the 2048px original width)
                 float centerInContent = scroll.getScrollX() + (screenWidth / 2f);
                 float pixelPos = (centerInContent % imageWidth) * (2048f / imageWidth);
                 pixelIndicator.setText("Pixel: " + (int)pixelPos);
-            }
-        });
-
-        // Start scroll position at the beginning of the second image (the middle one)
-        scroll.post(() -> {
-            if (referenceImage.getWidth() > 0) {
-                scroll.setScrollX(referenceImage.getWidth());
             }
         });
 
@@ -76,6 +81,47 @@ public class ViewPageActivity extends AppCompatActivity {
             finish();
         });
     }
+
+    public void displayPixel() {
+        scroll.post(new Runnable() {
+            @Override
+            public void run() {
+                final ImageView referenceImage = (ImageView) container.getChildAt(1);
+                TextView pixelIndicator = findViewById(R.id.pixelIndicator);
+
+                int scrollX = scroll.getScrollX();
+                int imageWidth = referenceImage.getWidth();
+                int screenWidth = scroll.getWidth();
+
+                if (imageWidth > 0) {
+                    // Calculation logic
+                    float centerInContent = scrollX + (screenWidth / 2f);
+                    float pixelPos = (centerInContent % imageWidth) * (2048f / imageWidth);
+
+                    // Final UI Update
+                    pixelIndicator.setText("Pixel: " + (int)pixelPos);
+                }
+            }
+        });
+
+    }
+
+    private void reloadPanorama() {
+        if (panoImg == 0) return;
+
+        Bitmap sampledBitmap = decodeSampledBitmapFromResource(panoImg, 200, 200);
+        for (int i = 0; i < container.getChildCount(); i++) {
+            View child = container.getChildAt(i);
+            if (child instanceof ImageView) {
+                ((ImageView) child).setImageBitmap(sampledBitmap);
+            }
+        }
+
+        displayPixel();
+        // After loading the image, set the scroll to the middle image + startPixel offset
+
+    }
+
 
     private Bitmap decodeSampledBitmapFromResource(int resId, int reqWidth, int reqHeight) {
         final BitmapFactory.Options options = new BitmapFactory.Options();

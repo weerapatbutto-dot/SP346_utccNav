@@ -9,51 +9,51 @@ public class BuildingRepository {
 
     static {
         buildings = new ArrayList<>();
-        // Existing UTCC Buildings
-        buildings.add(new Building("ตึก 1", 13.77928170188982, 100.55997880652406, "อาคาร 1", R.drawable.b01));
-        buildings.add(new Building("ตึก 3", 13.779200252232616, 100.56058307726535, "อาคาร 3", null));
-        buildings.add(new Building("ตึก 5", 13.780841678457527, 100.56058472135702, "อาคาร 5", R.drawable.b05));
-        buildings.add(new Building("ตึก 7", 13.779513125254471, 100.56108830609556, "อาคาร 7", R.drawable.b07));
-        buildings.add(new Building("ตึก 8", 13.780415620893505, 100.56011212059003, "อาคาร จอดรถ", null));
-        buildings.add(new Building("ตึก 10", 13.778748975450544, 100.5602919544518, "อาคาร 10", R.drawable.b10));
-        buildings.add(new Building("ตึก 15", 13.779976965358271, 100.5599171278896, "อาคาร ประชุม", R.drawable.b15));
-        buildings.add(new Building("ตึก 21", 13.780405340722664, 100.56100582817675, "อาคาร 21", R.drawable.b21));
-        buildings.add(new Building("ตึก 23", 13.779824424180603, 100.56117346622875, "อาคาร 23", R.drawable.b23));
-        buildings.add(new Building("ตึก 24", 13.780329795615001, 100.5604076955666, "อาคาร 24", R.drawable.b24));
+        // Existing UTCC Buildings - Using null for startPixel
+        buildings.add(new Building("ตึก 1", 13.77928170188982, 100.55997880652406, "อาคาร 1", R.drawable.b01, null));
+        buildings.add(new Building("ตึก 3", 13.779200252232616, 100.56058307726535, "อาคาร 3", null, null));
+        buildings.add(new Building("ตึก 5", 13.780841678457527, 100.56058472135702, "อาคาร 5", R.drawable.b05, null));
+        buildings.add(new Building("ตึก 7", 13.779513125254471, 100.56108830609556, "อาคาร 7", R.drawable.b07, null));
+        buildings.add(new Building("ตึก 8", 13.780415620893505, 100.56011212059003, "อาคาร จอดรถ", null, null));
+        buildings.add(new Building("ตึก 10", 13.778748975450544, 100.5602919544518, "อาคาร 10", R.drawable.b10, null));
+        buildings.add(new Building("ตึก 15", 13.779976965358271, 100.5599171278896, "อาคาร ประชุม", R.drawable.b15, null));
+        buildings.add(new Building("ตึก 21", 13.780405340722664, 100.56100582817675, "อาคาร 21", R.drawable.b21, null));
+        buildings.add(new Building("ตึก 23", 13.779824424180603, 100.56117346622875, "อาคาร 23", R.drawable.b23, null));
+        buildings.add(new Building("ตึก 24", 13.780329795615001, 100.5604076955666, "อาคาร 24", R.drawable.b24, null));
 
         panolocate = new ArrayList<>();
-        // Pre-set location for the call of navigate system
-        panolocate.add(new Building("pos1", 13.779107732452406, 100.56008536126022, "", R.drawable.pos1));
-        panolocate.add(new Building("pos2", 13.77951588735931, 100.5600943390289, "", R.drawable.pos2));
-        panolocate.add(new Building("pos3", 13.779922920391614, 100.56011043228011, "", R.drawable.pos3));
-        panolocate.add(new Building("pos4", 13.780113159249682, 100.56019349761799, "", R.drawable.pos4));
-        panolocate.add(new Building("pos5", 13.780109178472406, 100.56022122769222, "", R.drawable.pos5));
-        panolocate.add(new Building("pos6", 13.78008703591164, 100.5603902068517, "", R.drawable.pos6));
-        panolocate.add(new Building("pos7", 13.780049263302141, 100.56054644552943, "", R.drawable.pos7));
-        panolocate.add(new Building("pos8", 13.779833698811256, 100.56051895289362, "", R.drawable.pos8));
-        panolocate.add(new Building("pos9", 13.779646789259028, 100.56051627068777, "", R.drawable.pos9));
-        panolocate.add(new Building("pos10", 13.779478114656634, 100.56050218908725, "", R.drawable.pos10));
-        panolocate.add(new Building("pos11", 13.779250827064768, 100.56048743693606, "", R.drawable.pos11));
-        panolocate.add(new Building("pos12", 13.778949947450268, 100.56042641668063, "", R.drawable.pos12));
-        panolocate.add(new Building("pos13", 13.778989022746252, 100.5602487203423, "", R.drawable.pos13));
-        panolocate.add(new Building("pos14", 13.00, 11.00, "", R.drawable.pos14));
-        panolocate.add(new Building("pos15", 10.00, 10.00, "", R.drawable.pos15));
-        panolocate.add(new Building("pos16", 10.00, 10.00, "", R.drawable.pos16));
-        panolocate.add(new Building("pos17", 10.00, 10.00, "", R.drawable.pos17));
-        panolocate.add(new Building("pos18", 10.00, 10.00, "", R.drawable.pos18));
-        panolocate.add(new Building("pos19", 10.00, 10.00, "", R.drawable.pos19));
-        panolocate.add(new Building("pos20", 10.00, 10.00, "", R.drawable.pos20));
-        panolocate.add(new Building("pos21", 10.00, 10.00, "", R.drawable.pos21));
-        panolocate.add(new Building("pos22", 10.00, 10.00, "", R.drawable.pos22));
-        panolocate.add(new Building("pos23", 10.00, 10.00, "", R.drawable.pos23));
-        panolocate.add(new Building("pos24", 10.00, 10.00, "", R.drawable.pos24));
-        panolocate.add(new Building("pos25", 10.00, 10.00, "", R.drawable.pos25));
-        panolocate.add(new Building("pos26", 10.00, 10.00, "", R.drawable.pos26));
-        panolocate.add(new Building("pos27", 10.00, 10.00, "", R.drawable.pos27));
-        panolocate.add(new Building("pos28", 10.00, 10.00, "", R.drawable.pos28));
-        panolocate.add(new Building("pos29", 10.00, 10.00, "", R.drawable.pos29));
-        panolocate.add(new Building("pos30", 10.00, 10.00, "", R.drawable.pos30));
-        panolocate.add(new Building("pos31", 10.00, 10.00, "", R.drawable.pos31));
+        // Pre-set location for the call of navigate system with startPixel data
+        panolocate.add(new Building("pos1", 13.779107732452406, 100.56008536126022, "", R.drawable.pos1, 100));
+        panolocate.add(new Building("pos2", 13.77951588735931, 100.5600943390289, "", R.drawable.pos2, 100));
+        panolocate.add(new Building("pos3", 13.779922920391614, 100.56011043228011, "", R.drawable.pos3, 100));
+        panolocate.add(new Building("pos4", 13.780113159249682, 100.56019349761799, "", R.drawable.pos4, 100));
+        panolocate.add(new Building("pos5", 13.780109178472406, 100.56022122769222, "", R.drawable.pos5, 100));
+        panolocate.add(new Building("pos6", 13.78008703591164, 100.5603902068517, "", R.drawable.pos6, 100));
+        panolocate.add(new Building("pos7", 13.780049263302141, 100.56054644552943, "", R.drawable.pos7, 100));
+        panolocate.add(new Building("pos8", 13.779833698811256, 100.56051895289362, "", R.drawable.pos8, 0));
+        panolocate.add(new Building("pos9", 13.779646789259028, 100.56051627068777, "", R.drawable.pos9, 0));
+        panolocate.add(new Building("pos10", 13.779478114656634, 100.56050218908725, "", R.drawable.pos10, 0));
+        panolocate.add(new Building("pos11", 13.779250827064768, 100.56048743693606, "", R.drawable.pos11, 0));
+        panolocate.add(new Building("pos12", 13.778949947450268, 100.56042641668063, "", R.drawable.pos12, 0));
+        panolocate.add(new Building("pos13", 13.778989022746252, 100.5602487203423, "", R.drawable.pos13, 0));
+        panolocate.add(new Building("pos14", 13.00, 11.00, "", R.drawable.pos14, 0));
+        panolocate.add(new Building("pos15", 10.00, 10.00, "", R.drawable.pos15, 0));
+        panolocate.add(new Building("pos16", 10.00, 10.00, "", R.drawable.pos16, 0));
+        panolocate.add(new Building("pos17", 10.00, 10.00, "", R.drawable.pos17, 0));
+        panolocate.add(new Building("pos18", 10.00, 10.00, "", R.drawable.pos18, 0));
+        panolocate.add(new Building("pos19", 10.00, 10.00, "", R.drawable.pos19, 0));
+        panolocate.add(new Building("pos20", 10.00, 10.00, "", R.drawable.pos20, 0));
+        panolocate.add(new Building("pos21", 10.00, 10.00, "", R.drawable.pos21, 0));
+        panolocate.add(new Building("pos22", 10.00, 10.00, "", R.drawable.pos22, 0));
+        panolocate.add(new Building("pos23", 10.00, 10.00, "", R.drawable.pos23, 0));
+        panolocate.add(new Building("pos24", 10.00, 10.00, "", R.drawable.pos24, 0));
+        panolocate.add(new Building("pos25", 10.00, 10.00, "", R.drawable.pos25, 0));
+        panolocate.add(new Building("pos26", 10.00, 10.00, "", R.drawable.pos26, 0));
+        panolocate.add(new Building("pos27", 10.00, 10.00, "", R.drawable.pos27, 0));
+        panolocate.add(new Building("pos28", 10.00, 10.00, "", R.drawable.pos28, 0));
+        panolocate.add(new Building("pos29", 10.00, 10.00, "", R.drawable.pos29, 0));
+        panolocate.add(new Building("pos30", 10.00, 10.00, "", R.drawable.pos30, 0));
+        panolocate.add(new Building("pos31", 10.00, 10.00, "", R.drawable.pos31, 0));
     }
 
     public static List<Building> getBuildings() { return buildings; }

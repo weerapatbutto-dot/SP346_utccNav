@@ -5,14 +5,16 @@ public class Building {
     private double latitude;
     private double longitude;
     private String description;
-    private Integer imageResourceId; // Using Integer instead of int to allow null
+    private Integer imageResourceId; 
+    private Integer startPixel; // New field for start pixel
 
-    public Building(String name, double latitude, double longitude, String description, Integer imageResourceId) {
+    public Building(String name, double latitude, double longitude, String description, Integer imageResourceId, Integer startPixel) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
         this.imageResourceId = imageResourceId;
+        this.startPixel = startPixel;
     }
 
     public String getName() { return name; }
@@ -20,4 +22,5 @@ public class Building {
     public double getLongitude() { return longitude; }
     public String getDescription() { return description; }
     public Integer getImageResourceId() { return imageResourceId; }
+    public Integer getStartPixel() { return startPixel; }
 }
