@@ -109,7 +109,7 @@ public class ViewPageActivity extends AppCompatActivity {
     private void reloadPanorama() {
         if (panoImg == 0) return;
 
-        Bitmap sampledBitmap = decodeSampledBitmapFromResource(panoImg, 200, 200);
+        Bitmap sampledBitmap = decodeSampledBitmapFromResource(panoImg, 150, 150);
         for (int i = 0; i < container.getChildCount(); i++) {
             View child = container.getChildAt(i);
             if (child instanceof ImageView) {
