@@ -7,6 +7,22 @@
     android:background="@drawable/gradient_background"
     tools:context=".ViewPageActivity">
 
+    <!-- Image Name Indicator -->
+    <TextView
+        android:id="@+id/imageNameIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="pos1"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/pixelIndicator"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Pixel Indicator Text -->
     <TextView
         android:id="@+id/pixelIndicator"
@@ -18,7 +34,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageNameIndicator"
         app:layout_constraintTop_toTopOf="parent" />
 
     <HorizontalScrollView
@@ -91,6 +107,20 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
+        android:id="@+id/homeBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
+        app:layout_constraintEnd_toEndOf="@+id/nav_bar_background"
+        app:layout_constraintStart_toStartOf="@+id/nav_bar_background"
+        app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:tint="@android:color/black" />
+
+    <ImageButton
         android:id="@+id/prevBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -100,23 +130,23 @@
         android:src="@android:drawable/ic_media_previous"
         app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
         app:layout_constraintEnd_toStartOf="@+id/homeBtn"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@+id/nav_bar_background"
         app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintVertical_bias="0.529"
         app:tint="@android:color/black" />
 
     <ImageButton
-        android:id="@+id/homeBtn"
+        android:id="@+id/cBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="8dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/home"
+        android:src="@android:drawable/ic_menu_compass"
         app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
-        app:layout_constraintEnd_toStartOf="@+id/nextBtn"
-        app:layout_constraintStart_toEndOf="@+id/prevBtn"
+        app:layout_constraintEnd_toStartOf="@+id/prevBtn"
         app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
+        app:layout_constraintVertical_bias="0.529"
         app:tint="@android:color/black" />
 
     <ImageButton
@@ -128,7 +158,6 @@
         android:scaleType="fitCenter"
         android:src="@android:drawable/ic_media_next"
         app:layout_constraintBottom_toBottomOf="@+id/nav_bar_background"
-        app:layout_constraintEnd_toEndOf="@+id/nav_bar_background"
         app:layout_constraintStart_toEndOf="@+id/homeBtn"
         app:layout_constraintTop_toTopOf="@+id/nav_bar_background"
         app:tint="@android:color/black" />

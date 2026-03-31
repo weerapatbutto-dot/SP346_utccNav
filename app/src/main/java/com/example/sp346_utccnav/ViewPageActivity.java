@@ -9,6 +9,8 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -22,6 +24,8 @@ public class ViewPageActivity extends AppCompatActivity {
     private int currentIndex = 0; 
     private List<Building> panoList; 
     private HorizontalScrollView scroll;
+    private TextView pixelIndicator;
+    private TextView imageNameIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +35,9 @@ public class ViewPageActivity extends AppCompatActivity {
 
         scroll = findViewById(R.id.panoramaScroll);
         container = findViewById(R.id.panoramaContainer);
-        TextView pixelIndicator = findViewById(R.id.pixelIndicator);
-
+        pixelIndicator = findViewById(R.id.pixelIndicator);
+        imageNameIndicator = findViewById(R.id.imageNameIndicator);
+        
         panoList = BuildingRepository.getPanolocate();
 
         panoImg = panoList.get(currentIndex).getImageResourceId();
@@ -56,9 +61,14 @@ public class ViewPageActivity extends AppCompatActivity {
             reloadPanorama();
         });
 
+        findViewById(R.id.cBtn).setOnClickListener(v -> {
+            scroll.setScrollX(160);
+        });
+
         final ImageView referenceImage = (ImageView) container.getChildAt(1);
 
         scroll.getViewTreeObserver().addOnScrollChangedListener(() -> {
+            
             int scrollX = scroll.getScrollX();
             int imageWidth = referenceImage.getWidth();
             int screenWidth = scroll.getWidth();
@@ -69,57 +79,57 @@ public class ViewPageActivity extends AppCompatActivity {
                 } else if (scrollX <= 0) {
                     scroll.setScrollX(scrollX + imageWidth);
                 }
-                
                 float centerInContent = scroll.getScrollX() + (screenWidth / 2f);
                 float pixelPos = (centerInContent % imageWidth) * (2048f / imageWidth);
                 pixelIndicator.setText("Pixel: " + (int)pixelPos);
+                imageNameIndicator.setText(panoList.get(currentIndex).getName());
             }
         });
-
+        
         findViewById(R.id.homeBtn).setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });
     }
+    public void setCenter(){
+        //First call only
 
+        scroll.setScrollX(160);
+
+    }
     public void displayPixel() {
         scroll.post(new Runnable() {
             @Override
             public void run() {
                 final ImageView referenceImage = (ImageView) container.getChildAt(1);
-                TextView pixelIndicator = findViewById(R.id.pixelIndicator);
-
+                setCenter();
+                
                 int scrollX = scroll.getScrollX();
                 int imageWidth = referenceImage.getWidth();
                 int screenWidth = scroll.getWidth();
 
                 if (imageWidth > 0) {
-                    // Calculation logic
                     float centerInContent = scrollX + (screenWidth / 2f);
                     float pixelPos = (centerInContent % imageWidth) * (2048f / imageWidth);
 
-                    // Final UI Update
                     pixelIndicator.setText("Pixel: " + (int)pixelPos);
+                    imageNameIndicator.setText(panoList.get(currentIndex).getName());
                 }
             }
         });
-
     }
 
     private void reloadPanorama() {
         if (panoImg == 0) return;
 
-        Bitmap sampledBitmap = decodeSampledBitmapFromResource(panoImg, 150, 150);
+        Bitmap sampledBitmap = decodeSampledBitmapFromResource(panoImg, 300, 300);
         for (int i = 0; i < container.getChildCount(); i++) {
             View child = container.getChildAt(i);
             if (child instanceof ImageView) {
                 ((ImageView) child).setImageBitmap(sampledBitmap);
             }
         }
-
         displayPixel();
-        // After loading the image, set the scroll to the middle image + startPixel offset
-
     }
 
 

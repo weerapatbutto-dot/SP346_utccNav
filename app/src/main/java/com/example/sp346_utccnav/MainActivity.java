@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < resIds.length; i++) {
             ImageView img = findViewById(boxIds[i]);
             if (img != null) {
-                img.setImageBitmap(decodeSampledBitmapFromResource(resIds[i], 50, 50));
+                img.setImageBitmap(decodeSampledBitmapFromResource(resIds[i], 200, 200));
             }
         }
     }
