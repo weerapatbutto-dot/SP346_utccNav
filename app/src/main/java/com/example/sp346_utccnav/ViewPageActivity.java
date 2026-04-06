@@ -41,15 +41,18 @@ public class ViewPageActivity extends AppCompatActivity {
         panoList = BuildingRepository.getPanolocate();
 
         panoImg = panoList.get(currentIndex).getImageResourceId();
-        reloadPanorama();
+        displayImg();
+        displayPixel();
 
+        //Debugger button
         findViewById(R.id.prevBtn).setOnClickListener(v -> {
             currentIndex--;
             if (currentIndex < 0) {
                 currentIndex = panoList.size() - 1;
             }
             panoImg = panoList.get(currentIndex).getImageResourceId();
-            reloadPanorama();
+            imageNameIndicator.setText(BuildingRepository.getPanolocate().get(currentIndex).getName());
+            displayImg();
         });
 
         findViewById(R.id.nextBtn).setOnClickListener(v -> {
@@ -58,11 +61,17 @@ public class ViewPageActivity extends AppCompatActivity {
                 currentIndex = 0;
             }
             panoImg = panoList.get(currentIndex).getImageResourceId();
-            reloadPanorama();
+            imageNameIndicator.setText(BuildingRepository.getPanolocate().get(currentIndex).getName());
+            displayImg();
         });
 
         findViewById(R.id.cBtn).setOnClickListener(v -> {
-            scroll.setScrollX(160);
+            setCenter();
+        });
+
+        findViewById(R.id.homeBtn).setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
         });
 
         final ImageView referenceImage = (ImageView) container.getChildAt(1);
@@ -71,57 +80,49 @@ public class ViewPageActivity extends AppCompatActivity {
             
             int scrollX = scroll.getScrollX();
             int imageWidth = referenceImage.getWidth();
-            int screenWidth = scroll.getWidth();
-
             if (imageWidth > 0) {
                 if (scrollX >= imageWidth * 2) {
                     scroll.setScrollX(scrollX - imageWidth);
                 } else if (scrollX <= 0) {
                     scroll.setScrollX(scrollX + imageWidth);
                 }
-                float centerInContent = scroll.getScrollX() + (screenWidth / 2f);
-                float pixelPos = (centerInContent % imageWidth) * (2048f / imageWidth);
-                pixelIndicator.setText("Pixel: " + (int)pixelPos);
-                imageNameIndicator.setText(panoList.get(currentIndex).getName());
+                displayPixel();
             }
         });
-        
-        findViewById(R.id.homeBtn).setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-        });
     }
+    //This method using the startingp oint from buildingRepository to set
+    // start which is need current pixe lto change thing
     public void setCenter(){
-        //First call only
-
-        scroll.setScrollX(160);
-
+        // Pull data from BuildingRepository using current index from ViewPageActivity
+        List<Building> panolocate = BuildingRepository.getPanolocate();
+        if (currentIndex >= 0 && currentIndex < panolocate.size()) {
+            Integer startPixel = panolocate.get(currentIndex).getStartPixel();
+            if (startPixel != null) {
+                scroll.setScrollX(startPixel);
+            }
+        }
     }
+
+
+    //Display image pixel from center of the screen
     public void displayPixel() {
         scroll.post(new Runnable() {
             @Override
             public void run() {
                 final ImageView referenceImage = (ImageView) container.getChildAt(1);
-                setCenter();
-                
                 int scrollX = scroll.getScrollX();
                 int imageWidth = referenceImage.getWidth();
                 int screenWidth = scroll.getWidth();
-
                 if (imageWidth > 0) {
                     float centerInContent = scrollX + (screenWidth / 2f);
                     float pixelPos = (centerInContent % imageWidth) * (2048f / imageWidth);
-
                     pixelIndicator.setText("Pixel: " + (int)pixelPos);
-                    imageNameIndicator.setText(panoList.get(currentIndex).getName());
                 }
             }
         });
     }
-
-    private void reloadPanorama() {
+    private void displayImg(){
         if (panoImg == 0) return;
-
         Bitmap sampledBitmap = decodeSampledBitmapFromResource(panoImg, 300, 300);
         for (int i = 0; i < container.getChildCount(); i++) {
             View child = container.getChildAt(i);
@@ -129,10 +130,8 @@ public class ViewPageActivity extends AppCompatActivity {
                 ((ImageView) child).setImageBitmap(sampledBitmap);
             }
         }
-        displayPixel();
     }
-
-
+    //Calculate this ass clamp
     private Bitmap decodeSampledBitmapFromResource(int resId, int reqWidth, int reqHeight) {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -142,7 +141,6 @@ public class ViewPageActivity extends AppCompatActivity {
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(getResources(), resId, options);
     }
-
     private int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         final int height = options.outHeight;
         final int width = options.outWidth;
@@ -157,7 +155,7 @@ public class ViewPageActivity extends AppCompatActivity {
         }
         return inSampleSize;
     }
-
+    //......................................TF with just stay do not change my code bro AI...........////
     private void hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
