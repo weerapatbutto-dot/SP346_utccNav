@@ -83,185 +83,344 @@
             android:paddingBottom="40dp">
 
             <!-- Box 1 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box1"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
-                android:src="@drawable/b24"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@+id/box2"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b24"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 24"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 2 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box2"
-                android:src="@drawable/b07"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/box1"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b07"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 7"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 3 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box3"
-                android:src="@drawable/b01"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@+id/box4"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/box1" />
+                app:layout_constraintTop_toBottomOf="@+id/box1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b01"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 1"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 4 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box4"
-                android:src="@drawable/b05"
-                android:rotation="180"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/box3"
-                app:layout_constraintTop_toBottomOf="@+id/box2" />
+                app:layout_constraintTop_toBottomOf="@+id/box2">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b05"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 5"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 5 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box5"
-                android:src="@drawable/b10"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@+id/box6"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/box3" />
+                app:layout_constraintTop_toBottomOf="@+id/box3">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b10"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 10"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 6 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box6"
-                android:src="@drawable/b15"
-                android:rotation="180"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/box5"
-                app:layout_constraintTop_toBottomOf="@+id/box4" />
+                app:layout_constraintTop_toBottomOf="@+id/box4">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b15"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 15"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 7 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box7"
-                android:src="@drawable/b21"
-                android:rotation="180"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@+id/box8"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/box5" />
+                app:layout_constraintTop_toBottomOf="@+id/box5">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b21"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 21"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 8 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box8"
-                android:src="@drawable/b23"
-                android:rotation="180"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/box7"
-                app:layout_constraintTop_toBottomOf="@+id/box6" />
+                app:layout_constraintTop_toBottomOf="@+id/box6">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/b23"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="อาคาร 23"
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 9 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box9"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toStartOf="@+id/box10"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/box7" />
+                app:layout_constraintTop_toBottomOf="@+id/box7">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
             <!-- Box 10 -->
-            <ImageView
+            <LinearLayout
                 android:id="@+id/box10"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:background="@drawable/history_card_background"
+                android:layout_margin="8dp"
+                android:clipToOutline="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toEndOf="@+id/box9"
-                app:layout_constraintTop_toBottomOf="@+id/box8" />
+                app:layout_constraintTop_toBottomOf="@+id/box8">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:paddingVertical="6dp"
+                    android:background="#FFFFFF" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
