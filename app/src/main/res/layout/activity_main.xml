@@ -203,6 +203,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
+                    android:rotation="180"
                     android:scaleType="centerCrop"
                     android:src="@drawable/b05"/>
 
@@ -271,6 +272,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
+                    android:rotation="180"
                     android:scaleType="centerCrop"
                     android:src="@drawable/b15"/>
 
@@ -305,6 +307,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
+                    android:rotation="180"
                     android:scaleType="centerCrop"
                     android:src="@drawable/b21"/>
 
@@ -339,6 +342,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
+                    android:rotation="180"
                     android:scaleType="centerCrop"
                     android:src="@drawable/b23"/>
 
