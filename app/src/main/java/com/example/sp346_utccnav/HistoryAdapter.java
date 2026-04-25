@@ -3,6 +3,7 @@ package com.example.sp346_utccnav;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,15 @@ import java.util.List;
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
     private List<HistoryEntry> historyList;
 
+    private OnDeleteClickListener deleteListener;
+
+    public interface OnDeleteClickListener {
+        void onDeleteClick(int position);
+    }
+
+    public void setOnDeleteClickListener(OnDeleteClickListener listener) {
+        this.deleteListener = listener;
+    }
     public HistoryAdapter(List<HistoryEntry> historyList) {
         this.historyList = historyList;
     }
@@ -33,7 +43,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             locStr = entry.getLatitude() + ", " + entry.getLongitude();
         }
         holder.tvLocation.setText("โลเคชั่น : " + locStr);
+
+        holder.btnDeleteItem.setOnClickListener(v -> {
+            if (deleteListener != null) {
+                deleteListener.onDeleteClick(holder.getAdapterPosition());
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
@@ -47,12 +64,24 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvDestination, tvStartPoint, tvLocation;
+        ImageButton btnDeleteItem;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDestination = itemView.findViewById(R.id.tvDestination);
             tvStartPoint = itemView.findViewById(R.id.tvStartPoint);
             tvLocation = itemView.findViewById(R.id.tvLocation);
+            btnDeleteItem = itemView.findViewById(R.id.btnDeleteItem);
         }
+    }
+    public void deleteItem(int position) {
+        historyList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, historyList.size());
+    }
+
+    public void deleteAll() {
+        historyList.clear();
+        notifyDataSetChanged();
     }
 }

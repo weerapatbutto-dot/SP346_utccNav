@@ -2,6 +2,10 @@ package com.example.sp346_utccnav;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
@@ -42,6 +46,49 @@ public class HistoryActivity extends AppCompatActivity {
         adapter = new HistoryAdapter(new ArrayList<>());
         recyclerView.setAdapter(adapter);
 
+        adapter.setOnDeleteClickListener(position -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("ลบรายการ")
+                    .setMessage("ต้องการลบรายการนี้ใช่ไหม?")
+                    .setPositiveButton("ลบ", (dialog, which) -> adapter.deleteItem(position))
+                    .setNegativeButton("ยกเลิก", null)
+                    .show();
+        });
+
+        findViewById(R.id.btnDeleteStatic).setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("ลบรายการ")
+                    .setMessage("ต้องการลบรายการนี้ใช่ไหม?")
+                    .setPositiveButton("ลบ", (dialog, which) -> {
+                        findViewById(R.id.staticCard).setVisibility(View.GONE);
+                    })
+                    .setNegativeButton("ยกเลิก", null)
+                    .show();
+        });
+
+        ImageButton deleteAllBtn = findViewById(R.id.deleteAllBtn);
+        deleteAllBtn.setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("ลบทั้งหมด")
+                    .setMessage("ต้องการลบประวัติทั้งหมดใช่ไหม?")
+                    .setPositiveButton("ลบทั้งหมด", (dialog, which) -> adapter.deleteAll())
+                    .setNegativeButton("ยกเลิก", null)
+                    .show();
+        });
+
+
+        deleteAllBtn.setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setTitle("ลบทั้งหมด")
+                    .setMessage("ต้องการลบประวัติทั้งหมดใช่ไหม?")
+                    .setPositiveButton("ลบทั้งหมด", (dialog, which) -> {
+                        adapter.deleteAll();
+                        findViewById(R.id.staticCard).setVisibility(View.GONE); // ← เพิ่มบรรทัดนี้
+                    })
+                    .setNegativeButton("ยกเลิก", null)
+                    .show();
+        });
+
         fetchHistory();
 
         findViewById(R.id.homeBtn).setOnClickListener(v -> startActivity(new Intent(this, MainActivity.class)));
@@ -49,6 +96,7 @@ public class HistoryActivity extends AppCompatActivity {
         findViewById(R.id.gmapBtn).setOnClickListener(v -> startActivity(new Intent(this, MapActivity.class)));
         findViewById(R.id.settingBtn).setOnClickListener(v -> startActivity(new Intent(this, SettingActivity.class)));
     }
+
 
     private void fetchHistory() {
         Request request = new Request.Builder()
